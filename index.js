@@ -8,6 +8,13 @@ var voxel2dprinter = require('voxel-2d-print')
 var ndarray = require('ndarray')
 var ndarrayFill = require('ndarray-fill')
 var orthogamiExport = require('./js/orthogami.js')
+var critter = require('voxel-critter')
+var stl = require('ndarray-stl')
+var fill = require("ndarray-fill")
+var url = require('url')
+var toSTL = require('./')
+
+
 
 module.exports = function() {
   var container
@@ -93,6 +100,28 @@ module.exports = function() {
     shareDialog.close = function() {
       $('#share .modal-footer .btn-cancel').click()
     }
+  }
+
+  exports.stlExport = function() {
+    var data = getVoxels()
+    var options = {
+      "smooth": true,
+      "method": "marchingCubes",
+      "faceFormat": false
+    }
+    var normalOptions = {
+      faceFormat: function(f) {
+        return f.map(function(v) {
+          return [v[0], -v[2], v[1]]
+        })
+      }
+    }
+    function download(stl) {
+      var blob = new Blob([stl], { type: 'text/plain' })
+      saveAs(blob, 'voxel-object.stl')
+    }
+    var dn = stl(data.voxels, options)
+    download(dn)
   }
   
   exports.orthogamiExport = function() {
