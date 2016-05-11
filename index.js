@@ -9,7 +9,7 @@ var ndarray = require('ndarray')
 var ndarrayFill = require('ndarray-fill')
 var orthogamiExport = require('./js/orthogami.js')
 var critter = require('voxel-critter')
-var stl = require('ndarray-stl')
+var normalSTL = require('ndarray-stl')
 var fill = require("ndarray-fill")
 var url = require('url')
 var toSTL = require('./')
@@ -103,24 +103,20 @@ module.exports = function() {
   }
 
   exports.stlExport = function() {
-    var data = getVoxels()
+    var data = getVoxels().voxels
+    console.log(data)
+    
+
     var options = {
       "smooth": true,
       "method": "marchingCubes",
       "faceFormat": false
     }
-    var normalOptions = {
-      faceFormat: function(f) {
-        return f.map(function(v) {
-          return [v[0], -v[2], v[1]]
-        })
-      }
-    }
     function download(stl) {
       var blob = new Blob([stl], { type: 'text/plain' })
       saveAs(blob, 'voxel-object.stl')
     }
-    var dn = stl(data.voxels, options)
+    var dn = normalSTL(data)
     download(dn)
   }
   
