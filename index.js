@@ -378,7 +378,7 @@ module.exports = function() {
     if (delta > 0 && tooFar) return
     if (delta < 0 && tooClose) return
     radius = distance // for mouse drag calculations to be correct
-    camera.translateZ( delta )
+    camera.translateZ( -delta )
   }
 
   function setIsometricAngle() {
