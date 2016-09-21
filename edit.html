@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    <title>Voxel Critter Creator</title>
+    <title>Voxel Builder</title>
     <meta charset="utf-8">
     <link rel"shortcut icon" href="favicon.ico">
     <link href="flatui/css/bootstrap.css" rel="stylesheet">
@@ -12,54 +12,22 @@
   </head>
   <body>
     <div id="instructions">
-      <h3 class="demo-panel-title"><a href="/">Voxel Critter Creator</a></h3>
+      <h3 class="demo-panel-title"><a href="/">Voxel Builder</a></h3>
       
       <select class="actionsMenu" value="Actions" tabindex="1">
         <option value="noop" selected="selected">Actions</option>
         <option value="viewInstructions">View Instructions</option>
         <option value="loadExample">Load Example Critter</option>
         <!-- <option value="browseTwitter">Recently Made Critters</option> -->
-        <option value="browseRecent">Recently Made Critters</option>
+        <!-- <option value="browseRecent">Recently Made Critters</option> -->
         <option value="share">Publish + Share Critter</option>
         <option value="export">Export PNG</option>
         <option value="stlExport">Export STL</option>
-        <option value="orthogamiExport">Export Orthogami</option>
-        <option value="paperstackExport">Export Paperstack</option>
+        <!-- <option value="orthogamiExport">Export Orthogami</option>
+        <option value="paperstackExport">Export Paperstack</option> -->
         <option value="reset">Reset</option>
         <option value="about">About</option>
       </select>
-
-      <div class="share mrl">
-        <ul>
-          <li>
-            <label class="share-label" for="share-toggle2">Grid</label>
-            <div data-action="showGrid" class="toggle">
-              <label class="toggle-radio" for="share-toggle2">ON</label>
-              <input type="radio" name="share-toggles" id="share-toggle2" value="toggle1" checked="checked">
-              <label class="toggle-radio" for="share-toggle1">OFF</label>
-              <input type="radio" name="share-toggles" id="share-toggle1" value="toggle2">
-            </div>
-          </li>
-          <li>
-            <label class="share-label" for="share-toggle3">Wireframe</label>
-            <div data-action="setWireframe" class="toggle">
-              <label class="toggle-radio" for="share-toggle4">ON</label>
-              <input type="radio" name="share-toggles2" id="share-toggle4" value="toggle1" checked="checked">
-              <label class="toggle-radio" for="share-toggle3">OFF</label>
-              <input type="radio" name="share-toggles2" id="share-toggle3" value="toggle2">
-            </div>
-          </li>
-          <li>
-            <label class="share-label" for="share-toggle4">Animation</label>
-            <div data-action="toggleAnimation" class="toggle">
-              <label class="toggle-radio" for="share-toggle6">ON</label>
-              <input type="radio" name="share-toggles3" id="share-toggle6" value="toggle1">
-              <label class="toggle-radio" for="share-toggle5">OFF</label>
-              <input type="radio" name="share-toggles3" id="share-toggle5" value="toggle2" checked="checked">
-            </div>
-          </li>
-        </ul>
-      </div> <!-- /share -->
       
       <div class="row color-container">
         <div class="span3">
@@ -199,7 +167,7 @@
         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
       </div>
     </div>
-    
+
     <div id="paperstackExport" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -221,7 +189,8 @@
     
     <script type="text/javascript" src="js/flatui-deps.js"></script>
     <script type="text/javascript" src="colorpicker/js/bootstrap-colorpicker.js"></script>
-    <script src="js/FileSaver.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.0.0/FileSaver.min.js"></script>
+
     <script type="text/javascript" src="bundle.js"></script>
     
     <script>
